@@ -5,7 +5,6 @@ class Figure:
         self.y = y
 
     def move(self, x, y):
-        self.moved = True
         self.x = x
         self.y = y
 
@@ -58,6 +57,10 @@ class Pawn(Figure):
         super().__init__(color, x, y)
         self.moved = False
         self.c = 'p'
+
+    def move(self, x, y):
+        super().move(x,y)
+        self.moved = True
 
     def list_allowed_moves(self, chessboard):
 

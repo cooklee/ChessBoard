@@ -57,3 +57,15 @@ class Chessboard:
         if figure is None or figure.color != self.color:
             return None
         return figure.list_allowed_moves(self)
+
+
+    def move(self, from_x, from_y, to_x, to_y):
+        figure = self.board[from_x][from_y]
+        if (to_x, to_y) in self.list_allowed_moves(from_x, from_y):
+            figure.move(to_x, to_y)
+        self.board[to_x][to_y] = figure
+        self.board[from_x][from_y] = None
+        if self.color == 'white':
+            self.color = 'black'
+        else:
+            self.color = 'white'
