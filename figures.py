@@ -57,6 +57,7 @@ class Pawn(Figure):
     def __init__(self, color, x, y):
         super().__init__(color, x, y)
         self.moved = False
+        self.c = 'p'
 
     def list_allowed_moves(self, chessboard):
 
@@ -131,8 +132,3 @@ def drow_chessbard(f):
             else:
                 print(' ', end='')
         print()
-
-b = Queen(123, 5, 5)
-for x in b.list_allowed_moves(12):
-    print(x)
-drow_chessbard(b)
