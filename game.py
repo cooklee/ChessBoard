@@ -1,4 +1,4 @@
-from figures import Pawn, Knight, Queen, King, Rook, Bishop
+from chess import Pawn, Knight, Queen, King, Rook, Bishop
 
 
 def show(chessboard):
