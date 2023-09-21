@@ -12,7 +12,7 @@ class Chessboard:
                       [None] * 8,
                       [None] * 8,
                       [None] * 8,
-                      [None] * 8,]
+                      [None] * 8, ]
 
     def setup(self):
         self.setup_pawns()
@@ -28,18 +28,19 @@ class Chessboard:
 
         for x in range(8):
             self.board[x][6] = Pawn('black', x, 6)
+
     def setup_rooks(self):
-        for x in [0,7]:
+        for x in [0, 7]:
             self.board[x][0] = Rook('white', x, 0)
             self.board[x][7] = Rook('black', x, 7)
 
     def setup_knights(self):
-        for x in [1,6]:
+        for x in [1, 6]:
             self.board[x][0] = Knight('white', x, 0)
             self.board[x][7] = Knight('black', x, 7)
 
     def setup_bishop(self):
-        for x in [2,5]:
+        for x in [2, 5]:
             self.board[x][0] = Bishop('white', x, 0)
             self.board[x][7] = Bishop('black', x, 7)
 
@@ -50,3 +51,9 @@ class Chessboard:
     def setup_queen(self):
         self.board[3][0] = Queen('white', 3, 0)
         self.board[3][7] = Queen('black', 3, 7)
+
+    def list_allowed_moves(self,x,y):
+        figure =self.board[x][y]
+        if figure is None or figure.color != self.color:
+            return None
+        return figure.list_allowed_moves(self)
